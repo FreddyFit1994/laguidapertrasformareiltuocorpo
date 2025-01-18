@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>FreddyFitCoach</title>
+</head>
+<body>
+    <header>
+        <h1>FreddyFitCoach</h1>
+        <h2>Federico Obinu | Personal Trainer</h2>
+    </header>
+
+    <div class="container">
+        <h3 class="intro-title">La guida completa per trasformare il tuo corpo</h3>
+        <p id="intro-subtitle" class="intro-subtitle">Lascia il tuo nome, cognome e mail e clicca su "Scarica".</p>
+
+        <form id="contact-form">
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" placeholder="Inserisci il tuo nome" required>
+            </div>
+
+            <div class="form-group">
+                <label for="cognome">Cognome:</label>
+                <input type="text" id="cognome" name="cognome" placeholder="Inserisci il tuo cognome" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Inserisci la tua email" required>
+            </div>
+
+            <div class="consenso">
+                <input type="checkbox" id="consenso" name="consenso" required>
+                <label for="consenso">
+                    Acconsento al trattamento dei miei dati personali per ricevere i contenuti richiesti, promozioni, newsletter e altre comunicazioni relative ai servizi di FreddyFitCoach.
+                </label>
+            </div>
+
+            <button id="download-btn">Scarica la guida</button>
+        </form>
+
+        <!-- Messaggio di conferma -->
+        <div id="confirmation-message" style="display:none;">
+            <h3>Grazie!</h3>
+            <p>Il link per scaricare la guida ti è stato inviato via email. Controlla la tua inbox tra qualche minuto!</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>FreddyFitCoach</p>
+        <p>Partita IVA: 02045140494</p>
+        <div class="divider"></div>
+        <div class="links">
+            <a href="privacy-policy.html">Privacy Policy</a> | 
+            <a href="cookie-policy.html">Cookie Policy</a>
+        </div>
+        <div class="divider"></div>
+        <div class="social-links">
+            <p>Seguimi su:</p>
+            <a href="https://www.instagram.com/freddy_fit_coach" target="_blank">Instagram</a>
+        </div>
+        <div class="divider"></div>
+        <div class="copyright">
+            <p>© 2025 FreddyFitCoach. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+
+    <!-- Integrazione EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3.11.0/dist/email.min.js"></script>
+    <script>
+        // Inizializzazione di EmailJS
+        (function() {
+            emailjs.init("tbP5LzgkKKwmnH9S_");
+        })();
+
+        // Gestione invio del modulo
+        document.getElementById("contact-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Impedisce l'invio predefinito
+
+            // Ottieni i valori dai campi del modulo
+            var templateParams = {
+                nome: document.getElementById("nome").value,
+                cognome: document.getElementById("cognome").value,
+                email: document.getElementById("email").value
+            };
+
+            // Invio email tramite EmailJS
+            emailjs.send('service_6xgjfm7', 'template_xpjeexv', templateParams)
+                .then(function(response) {
+                    console.log('Email inviata con successo!', response.status, response.text);
+                    
+                    // Nasconde il modulo e il sottotitolo
+                    document.getElementById("contact-form").style.display = "none";
+                    document.getElementById("intro-subtitle").style.display = "none";
+
+                    // Mostra il messaggio di conferma
+                    document.getElementById("confirmation-message").style.display = "block";
+                }, function(error) {
+                    console.error('Errore durante l\'invio dell\'email:', error);
+                    alert("Si è verificato un errore durante l'invio. Riprova più tardi.");
+                });
+        });
+    </script>
+</body>
+</html>

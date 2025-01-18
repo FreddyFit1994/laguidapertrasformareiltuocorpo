@@ -1,0 +1,148 @@
+/* Reset margini e padding */
+body, h1, h2, p, label, input, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Stile generale del corpo */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom right, #0000ff, #00bfff);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* Intestazione */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3em;
+    font-weight: bold;
+    background: linear-gradient(to bottom, #ff6666, #ff0000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+header h2 {
+    font-family: 'Lora', serif;
+    font-size: 1.2em;
+    color: #ffffff;
+    font-weight: 400;
+}
+
+/* Contenitore principale */
+.container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+}
+
+/* Titolo della guida */
+.intro-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.intro-subtitle {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Gruppo del modulo */
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"], input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Checkbox consenso */
+.consenso {
+    font-size: 0.9em;
+    color: #555;
+    line-height: 1.5;
+    margin-top: 10px;
+}
+
+/* Pulsante */
+button {
+    background: linear-gradient(to bottom, #ff4d4d, #cc0000);
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: bold;
+    width: 100%;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: linear-gradient(to bottom, #cc0000, #990000);
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(to top, #333, #555);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9em;
+}
+
+footer a {
+    color: #ffcc00;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer .divider {
+    height: 1px;
+    background: #777;
+    margin: 15px auto;
+    width: 80%;
+}
+
+footer .copyright {
+    font-size: 0.8em;
+    color: #aaa;
+}
